@@ -1,7 +1,7 @@
 //ES5
 const colors = ['red', 'yellow', 'green', 'blue'];
 
-for (let i=0; i < colors.length; i++) {
+for (var i=0; i < colors.length; i++) {
     //console.log(colors[i]); //red yellow green blue
 }
 
