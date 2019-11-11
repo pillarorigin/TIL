@@ -7,9 +7,8 @@
 // }
 // includeJS('./key.js');
 
-
 // 여러가지 키워드로 검색된 결과를 1번 저장하고 
-const contents = ['car', 'cat', 'wow', 'coin'];
+const contents = ['space', 'earth', 'marvel', 'coin'];
 const keyword = contents[Math.floor(Math.random()*contents.length)]
 
 function searchTV(keyword) {
@@ -21,6 +20,7 @@ function searchTV(keyword) {
     GiphyAJAXCall.addEventListener('load', e => {
         const rawData = e.target.response;
         const parsedData = JSON.parse(rawData); //json으로 parsing
+        console.log(parsedData);
         pushToTvDom(parsedData);
     });
 };

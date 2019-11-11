@@ -1,3 +1,4 @@
+//spread operator, 펼침 연산자. [...]
 //ES5
 const addNumbers_ES5 = (a,b,c,d,e) => {
     const numbers = [a,b,c,d,e];
@@ -6,6 +7,14 @@ const addNumbers_ES5 = (a,b,c,d,e) => {
 
 
 //ES6
+let pre = ["apple", "orange",100];
+let newData = [...pre]; //Square Bracket[] 안의 pre의 값을 펼쳐서 보여주는 것이라 생각하면 쉽다.
+console.log(pre);   //[ 'apple', 'orange', 100 ]
+console.log(newData);   //[ 'apple', 'orange', 100 ]
+console.log(pre === newData); //false 
+//pre와 newData는 서로 같은 참조를 유지하는게 아닌 완전 복사.
+
+
 const addNumbers_ES6 = (...numbers) => {
     return numbers.reduce((acc,num) => acc += num, 0);
 }

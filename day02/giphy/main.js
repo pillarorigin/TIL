@@ -27,7 +27,6 @@ function searchAndPush(keyword){ //우리가 받은 keyword로 검색해서 push
     })
 };
 
-
 //DOM에 그리기
 function pushToDOM(parsedData) {
     resultArea.innerHTML = null;
@@ -38,8 +37,6 @@ function pushToDOM(parsedData) {
         const alt = ImageData.title;
         resultArea.innerHTML += `<img src="${ImageURL}" alt="${alt}" />`
     })
-
-
 }
 
 button.addEventListener('click', () => {
