@@ -26,7 +26,6 @@ console.log(justSumColor); //[ [ 'red', 'blue', 'green' ], [ 'orange', 'yellow' 
 
 
 //
-logging(1,2,3,4);
 function logging(){
     console.log(arguments); //[Arguments] { '0': 1, '1': 2, '2': 3, '3': 4 } //key, value로 잡힘
     console.log(...arguments); // 1 2 3 4
