@@ -85,3 +85,29 @@ iterable이라는 말은 '집합' 그 자체보다는 “개별 원소를 반복
 
 let [, , {writer}] = books; //json 세번재 객체[, {}] 에서 writer를 출력
 console.log(writer); //빅토르 위고
+
+
+//Destructuring 활용_Event객체전달
+function getBookInfo([,,writer]) {
+    console.log(writer);
+}
+getBookInfo(books);
+/* 
+{ genre: '소설',
+  price: '900',
+  name: '레미제라블',
+  writer: '빅토르 위고',
+  publisher: '빅토르 위고 출판사' }
+*/
+
+document.querySelector("div").addEventListener("click", function(evt){ 
+    console.log(evt.target);//evt는 obj
+})
+
+document.querySelector("div").addEventListener("click", function(target){ 
+    console.log(target);//target만 뽑을래
+})
+
+document.querySelector("div").addEventListener("click", function(target){ 
+    console.log(target.tagName);//target의 tagName만 뽑을래
+})

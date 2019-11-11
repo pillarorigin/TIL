@@ -1,3 +1,8 @@
+//map (key value 구조) (key값에 객체 저장 가능.)
+//Array => set, weakset
+//Object -> map, weakmap
+//https://www.sitepoint.com/es6-collections-map-set-weakmap-weakset/
+
 //ES5
 const numbers = [1,2,3];
 const doubleN = [];
@@ -48,3 +53,20 @@ function plunk(arr, key) {
 }
 const result = plunk(images, 'width'); //key가 width인 값을 result에 담아보자.
 console.log(result); // 1,2,3
+
+
+//WeakMap 추가정보를 담은 객체저장
+let wm = new WeakMap();
+let myfunction = function(){};
+//이 함수가 얼마나 실행했는지를 알려고 할 때.(count)
+
+wm.set(myfunction,0);
+console.log(wm);
+
+/*
+배열과 Set의 비교
+indexOf메서드를 통해 배열에 특정요소가 있는지 비교하는것은 느리다.
+배열에서는 해당 요소를 잘라내는 반면 Set객체는 해당요소를 삭제한다.
+NaN은 배열에서 indexOf로 찾을 수 없다.
+Set은 값의 유일성을 보장하므로 직접 요소의 중복성을 찾을 필요가 없다.
+*/
