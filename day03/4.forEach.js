@@ -5,7 +5,7 @@ for (var i=0; i < colors.length; i++) {
     //console.log(colors[i]); //red yellow green blue
 }
 
-//ES6
+//ES6 (forEach, for in, for of)
 //colors.forEach(color => console.log(color)); // //red yellow green blue
 
 
@@ -42,3 +42,22 @@ images.forEach(element => {
     area.push(element.height * element.width);
 });
 console.log(area); //[ 25, 100, 2500, 10000 ]
+
+
+//for in 문 (obj 순회할 때 자주 사용. 
+//자기 자신이 가지고 있지 않은 상위의 추가된 값들도 가지고 리턴해주므로 좋은 패턴은 아님)
+var data = [1,2,undefined,NaN,null,""];
+Array.prototype.getIndex = function(){};
+for(let idx in data){
+    console.log(data[idx]); //1, 2, undefined, NaN. null, [Function]
+}
+
+
+//for of (문자열 (char단위로 돌면서) 순회 및 배열 순회 시 유용, 공백도 나옴)
+for (let value of data) {
+    console.log(value);
+}
+let str = "for of 문자열 순회!!"; 
+for (let value of str) {
+    console.log(value);
+}
