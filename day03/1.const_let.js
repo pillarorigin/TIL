@@ -1,10 +1,10 @@
-//  const (상수)
+//  const (상수) - 
 const name = 'name'; //재할당 불가
 
 
 const obj = {
     name: 'john',
-    gender: 'male', //트레일링 콤마 (마지막에 콤마 추가해도 됨.)
+    gender: 'male', //trailing comma(마지막에 콤마 추가해도 됨.)
 }
 console.log(obj.name); //john
 //const는 키값으로 접근하는 value의 주소값을 가지고 있으므로 
@@ -21,6 +21,27 @@ const newName = name + 'john'
 console.log(newName); //namejohn
 
 
-//  let (변수)
+//  let (변수) - 변경 될 수 있는 변수
 let obj_let = 'iron';
 console.log(obj_let); //iron
+
+
+function fruit() {
+    const list = ["apple", "orange", "watermelon"];
+    list.push("banana");
+    console.log(list);
+}
+//immmutable array 만들기. 
+//(뒤로가기, 앞으로 가기 등 저장해둔 데이터로 보야 줘야 할때.)
+const list = ["apple", "orange", "watermelon"];
+    list2 = [].concat(list,"banana");
+    console.log(list === list2); //false
+    // react 사용시 상태 값이 바뀔 때 리덕스를 사용하는데 reducer를 사용하여 새로운 객체를 만들어서 상태값을 바꿔서 리턴하는데 이런 immutable array를 자주 사용.
+
+
+//결론
+/*
+ 1. const는 기본으로 사용한다. const를 사용하더라도 배열과 오브젝트의 값을 변경하는 것은 가능.
+
+ 2. 그런데 변경이 될 수 있는 변수는 let을 사용한다. var는 사용하지 않는다.
+*/
