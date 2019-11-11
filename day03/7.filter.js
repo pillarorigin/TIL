@@ -47,3 +47,18 @@ function myReject2 (arr, callback) {
     return arr.filter(e=>callback(e));
 }
 console.log(myReject2(numbers, num => num >3));
+
+//실습 예제
+function print() {
+    //filter, includes, from을 사용하여 문자열 'e'가 포함된 노드로 구성된 배열을 만들어서 반환.
+    let list = window.document.querySelectorAll("li");
+    //console.log(toString.call(list)); //반환 객체 nodeList
+    let listArray =  Array.from(list); //li 노드로 구성된 배열
+    console.log(toString.call(listArray));
+    let resultArray = listArray.filter(function(value){ //value는 node
+        return value.innerText.includes("e");
+    });
+    console.log(resultArray.length);
+    return resultArray;
+}
+console.log(print());
