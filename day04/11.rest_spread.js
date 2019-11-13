@@ -45,4 +45,4 @@ function logging(){
     console.log(rest);  //[ 3, 4 ]
     console.log(rest2); //[ 3, 4 ]
 }
-    
+logging(1,2,3,4);
