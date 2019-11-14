@@ -12,10 +12,10 @@ function getLottoData(drwNo) {
             let bnusNo = 0;
             //js for of문법
             for(const [key, value] of Object.entries(lottoData)){
-                console.log('현재 key-value');
-                console.log(key);
-                console.log(value);
-                console.log('==================')
+                // console.log('현재 key-value');
+                // console.log(key);
+                // console.log(value);
+                // console.log('==================')
                 if (key.includes('drwt'))realNumber.push(value);
                 else if (key === 'bnusNo') bnusNo = value;
                 realNumber.sort((a,b)=> a-b);
