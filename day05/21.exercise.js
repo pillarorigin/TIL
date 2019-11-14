@@ -36,6 +36,8 @@ function sendEmail() {
     }, 2000)
 }
 
+//Anonymous function
+
 //(익명함수)(); 단 1번 실행됩니다.
 //익명함수의 결과가 바로 나옴 
 // ((){})();
