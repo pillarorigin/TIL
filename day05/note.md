@@ -1,3 +1,5 @@
+0. python dfs (깊이 우선 탐색 - 경우의 수)
+
 https://www.tensorflow.org/overview/?hl=ko
 
 1. sync, async
