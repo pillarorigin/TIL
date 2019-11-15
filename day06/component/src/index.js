@@ -34,14 +34,22 @@ class App extends React.Component {
         //react는 setState가 감지하고 있다가 변화가 있으면 render하지않고 화면을 새로 뿌려주는 역할
         this.setState({ number: this.state.number + 1 })
     }
+    handleMinus = () => {
+        this.setState({ number: this.state.number - 1 })
+    }
+    handleReset = () => {
+        const number = 0
+        this.setState({number : 0})
+        // this.setState({ number: this.state.number = 0})
+    }
 
     render() {
         return (
             <>
                 <span>{this.state.number}</span>
-                <button onClick={this.handlePlus}>
-                    +
-                </button>
+                <button onClick={this.handlePlus}> + </button>
+                <button onClick={this.handleMinus}> - </button>
+                <button onClick={this.handleReset}> reset </button>
 
                 <Segment>
                     <div className="ui icon header">
@@ -58,7 +66,7 @@ class App extends React.Component {
                 </Segment>
 
                 <Message header="회원 약관 변경" body="약관이 변경 되었습니다."/>
-                
+
 
             </>
 
