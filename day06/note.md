@@ -55,7 +55,7 @@ div.ui.basic.green.button*2 => 2줄 완성 .. ^^
 <div className="ui basic green button"></div>
 
 #### react에 airbnb ESLint 얹기
-
+    airbnb에서 사용하는 js 규칙. (살짝 까다롭지만 적용해서 배우기에는 좋다.)
 [ESLint]: https://velog.io/@velopert/eslint-and-prettier-in-react
 [ESLint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 [Prettier - Code formatter]: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
@@ -69,6 +69,34 @@ vue는 아래 순서로 작성하는데. 상태관리 측면에서는 react가 �
 - css
 
 #### class 와 component 차이
-    1. state 관리
+    함수형 컴포넌트는 렌더링된 값들을 고정(유지)시킨다.
+        1. state 값을 안정적으로 관리.
+        2. 재사용 측면에서 function component가 유리.
 
-    2. hook에서 
+    class: 
+    class ClassName extends React.Component{
+        methodName = () => {
+            alert('클래스 사용' + this.props.user)
+        }
+    }
+        
+    component: 
+    function FunctionName(props) { 
+        const methodName = () => {
+             alert('component 사용' + props.user)
+        }
+    }
+    
+    [class 와 component 차이 출처] : https://overreacted.io/ko/how-are-function-components-different-from-classes/
+
+#### REST vs RESTfulAPI
+
+
+#### trello.com 사용
+- 협업 tool
+- project 진행 상황 정리 가능
+- 마크다운 문법 사용 가능.
+- label 활용 (학습, 개발, issue 등 작성 가능)
+- 체크list 
+- todo list
+[trello]: https://trello.com/

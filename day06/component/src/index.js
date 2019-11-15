@@ -59,6 +59,7 @@ class App extends React.Component {
                         </i>
                     </div>
                     <div className="ui primary button">Add document</div>
+                    <button className="ui primary button">any button</button>
                 </Segment>
 
                 <Segment>
