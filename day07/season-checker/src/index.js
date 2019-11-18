@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './component/SeasonDisplay';
+import Spinner from './component/Spinner';
 
 class App extends React.Component {
     //constructor에서 하는 일이 state 설정 뿐일 때, 생략 가능
@@ -32,30 +33,30 @@ class App extends React.Component {
         
     }
 
-    render(){
-        //조건 부 랜더링
-        //허용
-        if (this.state.lat && !this.state.errorMessage) {
-            return(
-                <div>
-                <SeasonDisplay lat={this.state.lat}/>
-                위도: {this.state.lat}
-                </div>
-            );
-        }
-        //거절
-        if (this.state.lat && this.state.errorMessage) {
-            return(
-                <div>{this.state.errorMessage}사용자 위치 정보가 필요합니다.</div>
-            );
-        }
-
+    conditionalRender() {
         //허용 , 거절 대기상태
+        if (this.state.lat && !this.state.errorMessage) {
+          return (
+            <SeasonDisplay lat={this.state.lat} />
+          );
+        };
+    
+        if (!this.state.lat && this.state.errorMessage) {
+          return (
+            <div>
+              {this.state.errorMessage} <br />
+              사용자 위치 정보가 필요합니다 ㅠㅠ
+            </div>
+          );
+        };
+        return ( <Spinner /> );
+      };
+    
+    render() {
         return(
-        <div>
-           사용자 위치 정보 수집에 동의해주세요.
-           
-        </div>
+            <div>
+            {this.conditionalRender()}
+          </div>
         )
     }
 }

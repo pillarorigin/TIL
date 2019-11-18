@@ -125,7 +125,7 @@ props 는 부모 컴포넌트가 자식 컴포넌트에게 주는 값입니다.
    react요소가 아닌 애들을 치울때?? 
 ...
 
-### 7. 리팩토링 (코드의 구조를 효율적으로 바꾸는 것)
+### 7. 리팩토링 (동작 자체가 변하지 않고 코드의 구조를 효율적으로 바꾸는 것)
 ```react
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -307,4 +307,9 @@ ReactDOM.render(<App />, document.querySelector('#root'));
 ```
 
 ### 9. SeasonDisplay를 컴포넌트 분리
+    + SeasonDisplay()
+    + getSeason()
+    리팩토링
 
+### 10. AWS S3 배포하기
+S3 storage 사용

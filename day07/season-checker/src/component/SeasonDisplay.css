@@ -1,0 +1,23 @@
+.season-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .summer {
+    background-color: yellow;
+    color: #ffa500;
+  }
+  
+/* 빈 공백하고 i를 하면 공백이 포함된 i도 스타일 적용 가능 */
+  .season-display.summer i{
+    color: red;
+  }
+  
+  .winter {
+    background-color: skyblue;
+    color: blue;
+  }
+  .season-display.winter i {
+    color: darkblue;
+  }
