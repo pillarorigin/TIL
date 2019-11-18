@@ -237,3 +237,74 @@ class App extends React.Component {
 }
 ReactDOM.render(<App />, document.querySelector('#root'));
 ```
+
+### 8. SeasonDisplay를 컴포넌트 추가
+```react
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+//위도를 넘겨준다. > props 사용
+//SeasonDisplay를 사용해서 위도를 출력해보자.
+const SeasonDisplay = (props) => {
+    return(
+        //jsx template
+    <div> SeasonDisplay() 를 사용해서 위도 출력: {props.lat}</div>
+    )
+}
+export default SeasonDisplay;
+
+class App extends React.Component {
+    //constructor에서 하는 일이 state 설정 뿐일 때, 생략 가능
+    constructor(props) {
+        super(props);
+        this.state = {
+            lat: null,
+            errorMessage :''
+        }
+    }
+    componentDidMount() {
+        console.log('컴포넌트가 화면에 렌더링이 끝났다')
+        window.navigator.geolocation.getCurrentPosition(
+            (position) => this.setState({lat: position.coords.latitude}),
+            (error) => this.setState({errorMessage:error.message})
+        );
+    }
+
+    componentDidUpdate() {
+        console.log('컴포넌트가 업데이트가 되고 리렌더링이 끝났다')
+        
+    }
+    render(){
+        //조건 부 랜더링
+        //허용
+        if (this.state.lat && !this.state.errorMessage) {
+            return(
+                <div>
+                <SeasonDisplay lat={this.state.lat}/>
+                위도: {this.state.lat}
+                </div>
+            );
+        }
+        //거절
+        if (this.state.lat && this.state.errorMessage) {
+            return(
+                <div>{this.state.errorMessage}사용자 위치 정보가 필요합니다.</div>
+            );
+        }
+        //허용 , 거절 대기상태
+        return(
+        <div>
+           사용자 위치 정보 수집에 동의해주세요.
+           
+        </div>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.querySelector('#root'));
+
+
+```
+
+### 9. SeasonDisplay를 컴포넌트 분리
+

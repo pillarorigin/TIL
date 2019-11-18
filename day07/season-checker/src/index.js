@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SeasonDisplay from './component/SeasonDisplay';
 
 class App extends React.Component {
     //constructor에서 하는 일이 state 설정 뿐일 때, 생략 가능
@@ -28,13 +29,18 @@ class App extends React.Component {
 
     componentDidUpdate() {
         console.log('컴포넌트가 업데이트가 되고 리렌더링이 끝났다')
+        
     }
+
     render(){
         //조건 부 랜더링
         //허용
         if (this.state.lat && !this.state.errorMessage) {
             return(
-                <div>위도: {this.state.lat}</div>
+                <div>
+                <SeasonDisplay lat={this.state.lat}/>
+                위도: {this.state.lat}
+                </div>
             );
         }
         //거절
@@ -48,8 +54,8 @@ class App extends React.Component {
         return(
         <div>
            사용자 위치 정보 수집에 동의해주세요.
+           
         </div>
-
         )
     }
 }
