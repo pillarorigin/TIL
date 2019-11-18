@@ -13,3 +13,9 @@
         있는지 없는지를 0, 1 로 표현한다 했을 경우 경우의 수 추출에 효율적
 
     BFS(Breadth First Search) - 너비 우선
+
+19.11.18 추가
+빗썸 url의 data 오브젝트(python은 딕션어리) 가져올 예정.
+
+python은 tab space가 4칸
+
