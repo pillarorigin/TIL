@@ -36,7 +36,14 @@ const App = () => {
         const { data } = result;
         setCurrent(data); //setCurrent 에 data가 담김
     };
-    const getHourlyTemp = async coords => { };
+    const getHourlyTemp = async coords => {
+        const { latitude: lat, longitude: lon } = coords;
+        const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APPID}&units=metric&lang=kr`;
+        const result = await Axios.get(url);
+        console.log(result);
+        const { data } = result;
+        setForecast(data);
+    };
     const getAll = async () => {
         //에러 핸들링
         try {
@@ -60,8 +67,13 @@ const App = () => {
             <main className="container">
                 {/* Current가 있을때만 보여야 하므로 조건문 분기 */}
                 {/* Current 컴포넌트 안에 current, unit, setUnit 이라는 3가지 props를 받음 */}
-                {current ? <Current current={current} unit={unit} setUnit={setUnit} /> : <Spinner />}
-                <Forecast />
+                {
+                !current || !forecast ? <Spinner /> 
+                    : <> 
+                    <Current current={current} unit={unit} setUnit={setUnit} /> 
+                    <Forecast forecast={forecast} unit={unit} /> 
+                    </>
+                }
             </main>
         </>
     )

@@ -3,7 +3,7 @@ import StateIcon from './Stateicon';
 import './Current.css';
 
 const Current = (props) => {
-    const { name, dt, weather, main, wind, rain, snow } = props.current;
+    const { name, dt, weather, main, wind} = props.current;
     const { unit, setUnit } = props; //App.js에서 받아오는 unit, setUnit
     const time = new Date(dt * 1000);
     const day = ['일', '월', '화', '수', '목', '금', '토'];
