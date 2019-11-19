@@ -16,6 +16,7 @@ const App = () => {
     // useState 는 가장 기본적인 Hook. 함수형 컴포넌트에서도 가변적인 상태를 지니고 있을 수 있게 해줍니다.
     const [current, setCurrent] = useState(null);
     const [forecast, setForecast] = useState(null);
+    const [unit, setUnit] = useState('c');
 
     const getLocation = () => {
         return new Promise((resolve, reject) => {
@@ -24,11 +25,11 @@ const App = () => {
     }
     const getTemp = async coords => {
         //coords의 data를 디스터링
-        console.log(coords); //latitude, longitude 등 의 정보 들어있음
+        //console.log(coords); //latitude, longitude 등 의 정보 들어있음
         const { latitude: lat, longitude: lon } = coords; //글자 축약 시 뒤에 작성
         console.log(lat, lon)
         //위도 경도만 뽑아서 url 만듬.
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APPID}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APPID}&units=metric&lang=kr`;
         //Axios를 통해 결과 받음.
         const result = await Axios.get(url);
         console.log(result);
@@ -58,7 +59,8 @@ const App = () => {
             </header>
             <main className="container">
                 {/* Current가 있을때만 보여야 하므로 조건문 분기 */}
-                {current ? <Current /> : <Spinner /> }
+                {/* Current 컴포넌트 안에 current, unit, setUnit 이라는 3가지 props를 받음 */}
+                {current ? <Current current={current} unit={unit} setUnit={setUnit} /> : <Spinner />}
                 <Forecast />
             </main>
         </>

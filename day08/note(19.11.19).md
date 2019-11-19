@@ -28,12 +28,15 @@ day08
     + Current.js
     + Forecast.js
     + Spinner.js
+    + Stateicon.js
 
 ### 5. React 확장 툴 추가
 VS Code ES7 React/Redux/React-Native/JS snippets
 
 ### 6. Weather OPEN API
 [Weather API] : https://openweathermap.org/api
+- By geographic coordinates
+    [예제로 사용한 api] : api.openweathermap.org/data/2.5/weather?lat=35&lon=139
 
 ### 7. App.js
 ```react
@@ -180,11 +183,15 @@ useState는 함수형 컴포넌트에 state를 추가할 수 있도록 도와줍
 const [current, setCurrent] = useState(null);
 //useState()를 사용하면 current(첫번째)와 setCurrent라는 두번째 값을 사용할 수 있음
 ```
-
-
 [hook] : https://ko.reactjs.org/docs/hooks-state.html
 
-### 11. 
+### 11. chart 모듈 추가
+```
+$ npm i recharts
+```
+
+### 12. 
+
 
 ### Referencr
 > https://ko.reactjs.org/docs/hooks-state.html
