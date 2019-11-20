@@ -16,8 +16,8 @@ const App = () => {
     // useState 는 가장 기본적인 Hook. 함수형 컴포넌트에서도 가변적인 상태를 지니고 있을 수 있게 해줍니다.
     const [current, setCurrent] = useState(null);
     const [forecast, setForecast] = useState(null);
-    const [unit, setUnit] = useState('c');
-
+    const [unit, setUnit] = useState('string'); //string을 인식
+    
     const getLocation = () => {
         return new Promise((resolve, reject) => {
             window.navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -42,6 +42,7 @@ const App = () => {
         const result = await Axios.get(url);
         console.log(result);
         const { data } = result;
+        console.log(data);
         setForecast(data);
     };
     const getAll = async () => {
