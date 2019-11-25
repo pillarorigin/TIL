@@ -46,6 +46,11 @@
     Delete: 삭제(DELETE)
     HEAD: header정보 조회(HEAD)
 
+    PUT과PATCH 구분해서 route 구성해야 한다.
+        PUT : 자원의 전체 교체
+        PATCH : 자원의 부분 교체
+
+
 4. SOAP
   SOAP(Simple Object Access Protocol)은 일반적으로 널리 알려진 HTTP, HTTPS, SMTP 등을 통해 XML기반의 메세지를 네트워크상에서 교환하는 프로토콜이다.
 
@@ -157,6 +162,7 @@ localhost:3000/api/members로 요청
 json 파일을 DB로 사용할 수 있게 해주는 server
 ``` bash
     $ npm install -g json-server
+    (//json-server는 db.json 파일 안의 제이슨형태의 데이터형식을 가져다 쓰는 express 라이브러리라고 보면 됨)
     $ npm init -y
     $ touch db.json
 ```
@@ -183,6 +189,7 @@ json 파일을 DB로 사용할 수 있게 해주는 server
 [Firebase] : https://console.firebase.google.com/
 
 ### 11. joi 설치
+schema를 대신 확인하는애
 Validate 작성을 위해
 express-basic > express-demo 폴더에서
 ```bash
@@ -203,6 +210,7 @@ function validateMember(member) {
 }
 
 ### 13. PUT과 PATCH
+(상세 설명 넣어야 할 부분)
 PUT과PATCH 구분해서 route 구성해야한다.
 PUT : 자원의 전체 교체
 
