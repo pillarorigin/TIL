@@ -7,6 +7,8 @@ const articles = [
     {id:2, author:3, content: '5시 까지'},
 ];
 
+
+
 router.get('/:id', (req, res) => {
     res.send(articles.find(article => article.id === parseInt(req.params.id)));
 });
