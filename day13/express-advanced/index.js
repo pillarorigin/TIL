@@ -2,6 +2,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+//  7. routes 호출
+const course = require('./models/courses')
+
 
 //  4. DB connect
 const mongoURI = 'mongodb://localhost/express-advanced';
@@ -24,7 +27,7 @@ app.use((req,res,next)=>{
     }) //연결에 성공시 다음 스텝으로
     .then(()=>{
         console.log('mongoose connect .. success')
-        next();
+        next(); //routes의 url로 이동했다가 로직 수행하고 돌아옴
     })
 })
 
@@ -36,6 +39,9 @@ app.use(()=>{
         console.log('mongoose disconnect.. completed');
     })
 })
+
+//  8. router 사용
+app.use('api/course', course);
 
 //  3. server listen
 const PORT = process.env.PORT || 5000;
