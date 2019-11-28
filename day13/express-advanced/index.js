@@ -3,11 +3,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 //  7. routes 호출
-const course = require('./models/courses')
+const course = require('./routes/course')
 
 
 //  4. DB connect
-const mongoURI = 'mongodb://localhost/express-advanced';
+const mongoURI = 'mongodb://localhost/welcome';
 mongoose.connect(mongoURI)
     .then(()=>{
         console.log('mongoose connect..completed');
@@ -16,6 +16,7 @@ mongoose.connect(mongoURI)
 
 //  2. express 실행
 const app = express();
+
 
 //  5. mongoose connect try (data를 주고 받을 req, res, next인자 필요)
 app.use((req,res,next)=>{
@@ -32,6 +33,11 @@ app.use((req,res,next)=>{
 })
 
 
+//  8. router 사용
+app.use(express.json());
+app.use('/api/course', course);
+
+
 //  6. mongoose disconnect (연결에 실패했을 경우 error를 )
 app.use(()=>{
     mongoose.disconnect()
@@ -40,8 +46,6 @@ app.use(()=>{
     })
 })
 
-//  8. router 사용
-app.use('api/course', course);
 
 //  3. server listen
 const PORT = process.env.PORT || 5000;
