@@ -75,12 +75,22 @@ class App extends React.Component {
             history: [{
                 squares: Array(9).fill(null)
             }],
-            xIsNext: true
+            xIsNext: true,
+            stepNumber: 0
         }
     }
 
+    // 선택된 version(클릭 이벤트)으로 돌아가는 method
+    jumpTo(step) {
+        //state 값을 변화시키겠다
+        this.setState({
+            stepNumber : step,
+            xIsNext : (step % 2) === 0 //결과값이 true or false
+        })
+    }
+
     handleClick(i) {
-        const history = this.state.history;
+        const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
         const squares = current.squares.slice();
 
@@ -91,13 +101,16 @@ class App extends React.Component {
         this.setState({
             history: history.concat([{
                 squares: squares
-            }]), xIsNext: !this.state.xIsNext
+            }]), 
+            xIsNext: !this.state.xIsNext,
+            stepNumber : history.length
         });
     };
 
     render() {
         const history = this.state.history;
-        const current = history[history.length - 1]
+        // const current = history[history.length - 1] //this.state.stepNumber
+        const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);
         const moves = history.map((step, move) => {
             const desc = move ? move + '몇 번째로 이동' : '시작'
