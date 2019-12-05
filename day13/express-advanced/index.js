@@ -33,7 +33,7 @@ app.use((req,res,next)=>{
 })
 
 
-//  8. router 사용
+//  8. middlewware 사용
 app.use(express.json());
 app.use('/api/course', course);
 
