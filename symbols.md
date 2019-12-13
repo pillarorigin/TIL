@@ -1,8 +1,8 @@
-Round brackets or parentheses ( ) 
+Round brackets or parentheses `( )` 
 
-Curly brackets or braces { } 
+Curly brackets or braces `{ }` 
 
-(US)Square brackets or simply brackets [ ] 
+(US)Square brackets or simply brackets `[ ]` 
 
     <Punctuation>  .
 
